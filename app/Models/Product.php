@@ -2,23 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Kalnoy\Nestedset\NodeTrait;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Product extends Model
 {
-    use HasFactory, HasSlug, NodeTrait;
+    use HasFactory, HasSlug;
 
     protected $fillable = [
         'name',
         'slug',
-        '_lft',
-        '_rgt',
-        'parent_id'
+        'description',
+        'price',
+        'discount_price',
+        'category_id'
     ];
 
     public function getSlugOptions() : SlugOptions
@@ -28,8 +28,8 @@ class Category extends Model
             ->saveSlugsTo('slug');
     }
 
-    public function products(): HasMany
+    public function category(): BelongsTo
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Category::class);
     }
 }
