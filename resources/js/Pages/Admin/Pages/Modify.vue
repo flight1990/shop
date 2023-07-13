@@ -10,7 +10,9 @@
 
         <div>
             <label for="body">Содержимое страицы</label>
-            <textarea id="body" v-model="form.body"></textarea>
+            <EditorComponent
+                id="body" v-model="form.body"
+            />
             <small v-if="form.errors.body">{{ form.errors.body }}</small>
         </div>
 
@@ -25,11 +27,16 @@
 <script>
 
 import AdminLayout from "@/Layouts/AdminLayout.vue";
+import EditorComponent from "@/Components/EditorComponent.vue";
 import {useForm} from "@inertiajs/vue3";
+
 
 export default {
     name: "Modify",
     layout: AdminLayout,
+    components: {
+        EditorComponent
+    },
     props: {
         page: {
             type: Object,
