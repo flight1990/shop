@@ -22,7 +22,7 @@
                 <td>{{ page.slug }}</td>
                 <td>
                     <inertia-link :href="`/admin/pages/${page.id}/edit`">Редактировать</inertia-link>
-                    <inertia-link :href="`/admin/pages/${page.id}`" as="button" method="delete">Удалить</inertia-link>
+                    <inertia-link :href="`/admin/pages/${page.id}`"  method="DELETE" as="button">Удалить</inertia-link>
                 </td>
             </tr>
             </tbody>

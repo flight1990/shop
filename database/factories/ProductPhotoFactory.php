@@ -1,0 +1,26 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ProductPhoto>
+ */
+class ProductPhotoFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'photos' => [
+                'original' => $this->faker->imageUrl(640, 480),
+                'thumbnail' => $this->faker->imageUrl(320, 240)
+            ]
+        ];
+    }
+}

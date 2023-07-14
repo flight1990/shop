@@ -24,6 +24,7 @@
                 <td>{{ category.parent?.name }}</td>
                 <td>
                     <inertia-link :href="`/admin/categories/${category.id}/edit`">Редактировать</inertia-link>
+                    <inertia-link :href="`/admin/categories/${category.id}`"  method="DELETE" as="button">Удалить</inertia-link>
                 </td>
             </tr>
             </tbody>
